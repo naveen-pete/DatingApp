@@ -10,7 +10,9 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ErrorInterceptor implements HttpInterceptor {
   intercept(
     req: HttpRequest<any>,

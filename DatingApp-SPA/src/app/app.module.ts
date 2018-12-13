@@ -16,48 +16,46 @@ import { ListsComponent } from './lists/lists.component';
 import { MemberListComponent } from './members/member-list/member-list.component';
 import { MessagesComponent } from './messages/messages.component';
 import { appRoutes } from './routes';
-import { AuthGuard } from './_guards/auth.guard';
 import { MemberCardComponent } from './members/member-card/member-card.component';
 import { MemberDetailComponent } from './members/member-detail/member-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
 }
 
 @NgModule({
-   declarations: [
-      AppComponent,
-      NavComponent,
-      HomeComponent,
-      RegisterComponent,
-      ListsComponent,
-      MemberListComponent,
-      MessagesComponent,
-      MemberCardComponent,
-      MemberDetailComponent
-   ],
-   imports: [
-      BrowserModule,
-      HttpClientModule,
-      FormsModule,
-      BsDropdownModule.forRoot(),
-      TabsModule.forRoot(),
-      RouterModule.forRoot(appRoutes),
-      NgxGalleryModule,
-      JwtModule.forRoot({
-        config: {
-          tokenGetter,
-          whitelistedDomains: ['localhost:5000'],
-          blacklistedRoutes: ['localhost:5000/api/auth']
-        }
-      })
-   ],
-   providers: [
-      ErrorInterceptorProvider,
-      AuthGuard
-   ],
-   bootstrap: [
-      AppComponent
-   ]
+  declarations: [
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    RegisterComponent,
+    ListsComponent,
+    MemberListComponent,
+    MessagesComponent,
+    MemberCardComponent,
+    MemberDetailComponent,
+    MemberEditComponent
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
+    RouterModule.forRoot(appRoutes),
+    NgxGalleryModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        whitelistedDomains: ['localhost:5000'],
+        blacklistedRoutes: ['localhost:5000/api/auth']
+      }
+    })
+  ],
+  providers: [
+    ErrorInterceptorProvider
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
